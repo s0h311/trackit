@@ -4,12 +4,12 @@
 
 ### What will be used
 
-| Technology / Feature / API                                  | Type         | Additional Info                      |
-| ----------------------------------------------------------- | ------------ | ------------------------------------ |
-| [TypeScript](https://www.typescriptlang.org/)               |              |                                      |
-| [Esbuild](https://esbuild.github.io/)                       |              | Bundler                              |
-| [Nitro](https://nitro.unjs.io/)                             |              | Web server                           |
-| [Decorators](https://github.com/tc39/proposal-decorators)   | Stage 3 TC39 |                                      |
-| [Temporal](https://github.com/tc39/proposal-temporal)       | Stage 3 TC39 |                                      |
-| [Signals](https://github.com/tc39/proposal-signals)         | Stage 1 TC39 |                                      |
-| [View Transitions API](https://mdn.io/View_Transitions_API) | Web API      | limited availability (only chromium) |
+| Technology / Feature / API                                  | Type         | Additional Info                                     |
+| ----------------------------------------------------------- | ------------ | --------------------------------------------------- |
+| [TypeScript](https://www.typescriptlang.org/)               |              |                                                     |
+| [Esbuild](https://esbuild.github.io/)                       |              | Bundler                                             |
+| [Decorators](https://github.com/tc39/proposal-decorators)   | Stage 3 TC39 | Through `experimentalDecorators` in `tsconfig.json` |
+| [Temporal](https://github.com/tc39/proposal-temporal)       | Stage 3 TC39 |                                                     |
+| [Signals](https://github.com/tc39/proposal-signals)         | Stage 1 TC39 |                                                     |
+| [View Transitions API](https://mdn.io/View_Transitions_API) | Web API      | limited availability (only chromium)                |
+| Custom webserver                                            |              | see `server/internal/server`                        |

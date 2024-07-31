@@ -2,11 +2,17 @@
   "compilerOptions": {
     "strict": true,
     "experimentalDecorators": true,
-    "target": "ESNext",
-    "module": "Preserve",
+    "target": "ES2022",
+    "module": "ESNext",
     "moduleResolution": "Bundler",
     "isolatedModules": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "lib": ["Dom", "ES2022", "Dom.Iterable"],
     "paths": {
       "@lib/*": ["./lib/*"]
     }
