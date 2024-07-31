@@ -20,6 +20,7 @@ export class Component extends HTMLElement {
   }
 
   protected template(html: string): void {
+    // TODO maybe sanatize here, maybe not
     this.updateShadowHTML(html);
   }
 
