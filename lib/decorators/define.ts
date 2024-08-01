@@ -1,4 +1,4 @@
-import { ComponentTag } from "./types";
+import { ComponentTag } from './types'
 
 export const Define =
   (componentTag: ComponentTag): Function =>
@@ -7,5 +7,5 @@ export const Define =
     _propertyKey: string,
     _descriptor: PropertyDescriptor
   ) => {
-    customElements.define(componentTag, target);
-  };
+    customElements.define(componentTag, target)
+  }
