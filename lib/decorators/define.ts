@@ -1,4 +1,4 @@
-import { ComponentTag } from './types'
+import { type ComponentTag } from './types'
 
 export const Define =
   (componentTag: ComponentTag): Function =>
