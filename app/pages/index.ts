@@ -4,10 +4,10 @@ import { effect } from '@lib/signals'
 import { Signal } from 'signal-polyfill'
 
 @Define('app-home')
-export default class HomePage extends Component {
+class HomePage extends Component {
   public count = new Signal.State(1)
 
-  protected override onConnected(): void {
+  protected onConnected(): void {
     effect(() => {
       const currentCount = this.count.get()
       const countElement = this.shadowRoot?.getElementById('count')
@@ -22,11 +22,11 @@ export default class HomePage extends Component {
     this.count.set(this.count.get() + 1)
   }
 
-  protected override render(): string {
+  protected render(): string {
     return `
       <div>
         <p id="count">0</p>
-        <button id="countIncreaseButton" onclick="this.ownerDocument.activeElement.increaseCount()">COUNT++</button>
+        <button onclick="this.increaseCount()">COUNT++</button>
       </div>
     `
   }

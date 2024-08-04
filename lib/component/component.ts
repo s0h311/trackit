@@ -9,6 +9,7 @@ export class Component extends HTMLElement {
     this.createRenderRoot()
 
     this.updateShadowHTML(this.render())
+    this.attachEventHandlers()
 
     this.onConnected()
   }
@@ -36,5 +37,47 @@ export class Component extends HTMLElement {
     }
 
     this.renderRoot.innerHTML = html
+  }
+
+  private attachEventHandlers(): void {
+    const proto = Object.getPrototypeOf(this)
+    const propertyNames = Object.getOwnPropertyNames(proto)
+
+    const handlers: Function[] = []
+
+    for (const property of propertyNames) {
+      if (
+        ![
+          'constructor',
+          'onConnected',
+          'render',
+          'attachEventHandlers',
+        ].includes(property)
+      ) {
+        handlers.push(proto[property] as unknown as Function)
+      }
+    }
+
+    const clickableElementsTags = ['button', 'div', 'a', 'span']
+
+    const rootChildren = [...this.shadowRoot!.children]
+
+    const allButtons: Element[] = []
+
+    rootChildren.forEach((child) => {
+      if (clickableElementsTags.includes(child.localName)) {
+        allButtons.push(child)
+      }
+
+      clickableElementsTags.forEach((tag) => {
+        allButtons.push(...child.getElementsByTagName(tag))
+      })
+    })
+
+    allButtons.forEach((button) => {
+      handlers.forEach((handler) => {
+        Object.getPrototypeOf(button)[handler.name] = handler
+      })
+    })
   }
 }
